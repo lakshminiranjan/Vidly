@@ -1,0 +1,31 @@
+﻿@model Vidly.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var className = Model.Customers.Count > 0 ? "popular" : null;
+}
+
+@* fn + f5 or ctrl + f5 --> to run the  application  in browser.
+    ctrl + alt + enter to open the file in browser.
+    ctrl + doble M-> to collapse all the code.
+*@
+<h2 class="@className">@Model.Movie.Name</h2>
+@if (Model.Customers.Count == 0)
+{
+    <text>No customers for this movie.</text>
+    return;
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>@customer.Name</li>
+        }
+    </ul>
+}
+
+
